@@ -1,8 +1,26 @@
-<h1>
-  {{title}}
+<form class="ui large form segment">
+  <h3 class="ui header">Add a Link</h3>
 
-  <app-hello-world></app-hello-world>
+  <!--#newtitle and #newlink are added to <input /> elements, so we can
+pass them as variables into the addArticle() function on the button!-->
 
-  <app-user-list></app-user-list>
+  <div class="field">
+    <label for="title">Title:</label>
+    <input name="title" #newtitle> 
+    
+    <!-- # (hash) is used to tell Angular to assign tags to a local
+      variable-->
+  </div>
+  <div class="field">
+    <label for="link">Link:</label>
+    <input name="link" #newlink>
+  </div>
 
-</h1>
+  <!--added this button-->
+  <button (click)="addArticle(newtitle, newlink)"
+          class="ui positive right floated button">
+        Sumbit link
+        </button>
+
+
+</form>
