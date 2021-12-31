@@ -6,8 +6,8 @@ pass them as variables into the addArticle() function on the button!-->
 
   <div class="field">
     <label for="title">Title:</label>
-    <input name="title" #newtitle> 
-    
+    <input name="title" #newtitle>
+
     <!-- # (hash) is used to tell Angular to assign tags to a local
       variable-->
   </div>
@@ -17,10 +17,14 @@ pass them as variables into the addArticle() function on the button!-->
   </div>
 
   <!--added this button-->
-  <button (click)="addArticle(newtitle, newlink)"
-          class="ui positive right floated button">
-        Sumbit link
-        </button>
-
-
+  <button (click)="addArticle(newtitle, newlink)" class="ui positive right floated button">
+    Sumbit link
+  </button>
 </form>
+
+<div class="ui grid posts">
+  <app-article
+  *ngFor="let article of sortedArticles()"
+  [article]="article">
+  </app-article>
+</div>
